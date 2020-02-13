@@ -1,0 +1,30 @@
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        くろ    
+      %ul.side-header__box__menu
+        %li.side-header__box__menu__new-group    
+          = link_to "#", class: "new-group" do
+            = icon('fas', 'edit')
+        %li.side-header__box__menu__edit-user
+          = link_to "#", class: "edit-user" do
+            = icon('fas', 'cog') 
+  .groups
+    .groups__group
+      = link_to "#", class: "group" do
+        %p.group__group-name test
+        %p.group__latest-messages まだメッセージがありません  
+    .groups__group
+      = link_to "#", class: "group" do
+        %p.group__group-name test
+        %p.group__latest-messages まだメッセージがありません                   
+      
+      
+
+
+
+
+  
+
+  
