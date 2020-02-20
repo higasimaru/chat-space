@@ -54,7 +54,8 @@ $(function(){
     })  
       .done(function(data){
         var html = buildHTML(data);
-        $
+        $('.messages').append(html);
+        $('form')[0].reset();
       })
   })
 });
