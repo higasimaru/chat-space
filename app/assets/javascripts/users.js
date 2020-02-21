@@ -17,6 +17,17 @@ $(function(){
     `;
     $("#user-search-result").append(html);
   }
+  function addDeleteUser(userName, userId) {
+    let html = `
+    <div class="chat-group-user clearfix" id="${userId}">
+      <p class="chat-group-user__name">${userName}</p>
+      <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${userId}" data-user-name="${userName}">削除</div>
+    </div>`;
+    $(".js-add-user").append(html);
+  }
+ 
+
+
   $("#user-search-field").on("keyup", function(){
     let input = $("#user-search-field").val();   
     $.ajax({
@@ -42,14 +53,14 @@ $(function(){
         alert("ユーザー検索が出来ませんでした");
       });
   });
-});
-$(document).on("click",".chat-group-user__btn--add",function(){
-  console.log
-  const userName = $(this).attr("data-user-name");
-  const userId = $(this).attr("data-user-id");
-  $(this)
-    .parent()
-    .remove();
-  addDeleteUser(userName, userId);
-  addMember(userId);
+  $(document).on("click", ".chat-group-user__btn--add", function() {
+    console.log
+    const userName = $(this).attr("data-user-name");
+    const userId = $(this).attr("data-user-id");
+    $(this)
+      .parent()
+      .remove();
+    addDeleteUser(userName, userId);
+    // addMember(userId);
+  });
 });
