@@ -26,10 +26,20 @@ $(function(){
       dataType: "json"      
     })
       .done(function(users){
-        console.log('ok');
+        $("#user-search-result").empty();
+
+        if (users.length !== 0){
+          users.forEach(function(user){
+            addUser(user);
+          });
+        } else if (input.lengh == 0){
+          return false;
+        } else {
+          addNoUser();
+        }
       })
       .fail(function(){
-        console.log('no')
+        alert("ユーザー検索に失敗しました");
       });
   });
 });
