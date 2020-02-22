@@ -84,7 +84,7 @@ $(function(){
         } 
       })
       .fail(function(){
-        console.log('no');
+       alert("通信エラーです")
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)){
